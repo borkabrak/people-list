@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Toy People Tracker</title>
+
+    <script src="people.js"></script>
+
 </head>
 
 <?php
@@ -10,9 +14,9 @@
     session_start();
 
     // Clear session and reload, if so instructed.
-    if (isset($_POST['destroy_session'])) {
+    if ( isset($_GET['clear_session']) ) {
         session_destroy();
-        header("Refresh:0");
+        header("Refresh:0; url=people.php"); // reload page immediately
     }
     
     // Initialize data, if necessary.
@@ -37,22 +41,23 @@
     <!-- List people currently stored in the session -->
     <ul>
     <?php foreach($_SESSION['people'] as $person) { ?>
-    <li><strong><?= $person['firstname'] . " " . $person['lastname'] ?></strong>
+        <li><strong><?= $person['firstname'] . " " . $person['lastname'] ?></strong>
     <?php } ?>
     </ul>
 
-        <form method="post">
-            <label>First Name</label> 
-            <input name="firstname">
+    <!-- Form for adding a new entry -->
+    <form method="post">
+        <label>First Name</label> 
+        <input name="firstname">
 
-            <label>Last Name</label>
-            <input name="lastname">
+        <label>Last Name</label>
+        <input name="lastname">
 
-            <br>
+        <br>
 
-            <input type="submit">
-            <input type="submit" name="destroy_session" value="Erase Data">
-        </form>
+        <input type="submit">
+        <input type="button" name="clear_session" value="Clear Session" onclick="confirm_clear_session()">
+    </form>
     </div>
 
 </body>
