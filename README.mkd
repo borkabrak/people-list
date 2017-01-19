@@ -1,8 +1,31 @@
-People List
-===========
+A small list management program.
+================================
 
-A largely PHP-driven page for managing a list of people.
+A PHP-driven page for managing a list of people by name.
 
-This does NOT represent the full extent of my experience and skills, but rather is
-intended as a demonstration of fundamental ability with web development in general,
-and PHP in particular.
+Due to intellectual property issues and a recent laptop that went kaput, I had
+no real PHP code samples available when I was asked for them.  As an
+alternative, I put this little page together one evening.  
+
+This does NOT of course represent the full extent of my experience and skills,
+but rather is intended as a demonstration of basic competence with web
+development in general -- some PHP, as well as necessary adjunct skills such
+as Javascript and modern HTML.
+
+Regarding PHP in particular -- though this code is brief, I believe it
+indicates that I'm at least familiar with such basic tasks as managing POST
+and GET parameters, dealing with session data, programming control structures
+such as looping and conditionals, and familiarity with some standard functions
+such as isset() and array_push().
+
+I thought about building a class or two, but it seemed to me like pretty bad
+overkill for this toy project.  I'm happy to demonstrate such skill upon
+request.
+
+I believed that the purpose of the requested code sample was to avoid the
+lamentable situation that sometimes occurs in our industry whereby someone can
+talk a good game, but turns out to be incapable of actually writing basic
+code.  I hope that I've at least shown that I'm not such a person. 
+
+I'm happy to carry out any other specific and software design tasks required
+to demonstrate further ability.
