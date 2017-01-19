@@ -1,0 +1,8 @@
+People List
+===========
+
+A largely PHP-driven page for managing a list of people.
+
+This does NOT represent the full extent of my experience and skills, but rather is
+intended as a demonstration of fundamental ability with web development in general,
+and PHP in particular.
