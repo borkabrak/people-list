@@ -6,37 +6,53 @@
 </head>
 
 <?php
+    // Initialize session functionality.
+    session_start();
 
-    //Read parameters
+    // Clear session and reload, if so instructed.
+    if (isset($_POST['destroy_session'])) {
+        session_destroy();
+        header("Refresh:0");
+    }
+    
+    // Initialize data, if necessary.
+    if (!isset($_SESSION['people'])) {
+        $_SESSION['people'] = [];
+    } 
 
-    $list = $_POST;
+    // Add the new person, if we have one.
+    if ($_POST['firstname']) {
+        array_push($_SESSION['people'], array(
+            'firstname' => $_POST['firstname'],
+            'lastname' => $_POST['lastname']
+        ));
+    }
 
 ?>
-
 <body>
     <h1>People</h1>
 
-    <div class="add">
-        <form method="post" id="add">
+    <div>
 
-            <label for="FirstName">First Name
-            <input name="FirstName"></input></label>
+    <!-- List people currently stored in the session -->
+    <ul>
+    <?php foreach($_SESSION['people'] as $person) { ?>
+    <li><strong><?= $person['firstname'] . " " . $person['lastname'] ?></strong>
+    <?php } ?>
+    </ul>
 
-            <label for="LastName">Last Name
-            <input name="LastName"></input></label>
+        <form method="post">
+            <label>First Name</label> 
+            <input name="firstname">
 
-            <input type="submit"></input>
+            <label>Last Name</label>
+            <input name="lastname">
+
+            <br>
+
+            <input type="submit">
+            <input type="submit" name="destroy_session" value="Erase Data">
         </form>
-    </div>
-
-    <div class="list">
-
-    <label>First Name</label> 
-    <span class="output"><?= $firstname ?></span>
-
-    <label>Last Name</label>
-    <span class="output"><?= $lastname ?></span>
-
     </div>
 
 </body>
